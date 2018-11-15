@@ -1,0 +1,125 @@
+
+.period-table{
+	width: 1000px;
+	margin: 0 auto;
+/*	background: aquamarine; */
+}
+
+.table-header{
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+}
+
+.column-one-name{
+	padding: 5px;
+	width: 100px;
+	border: 1px solid #ccc;	
+	text-align: center;
+}
+
+.column-two-names{
+	padding: 5px;
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+	box-sizing: border-box;
+	width: 200px;
+	border: 1px solid #ccc;	
+}
+
+.header{
+	background: #FBCE06;
+	border: 1px solid #fff;	
+	text-align: center;
+}
+
+.name{
+	width: 100%;
+	text-align: center;
+}
+
+.resource-left{
+	float: left;
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	
+}
+
+.resource-right{
+	float: right;
+	width: 40%;
+}
+
+.circle{
+	width: 10px;
+	height: 10px;
+	background: #FBCE06;
+	border: 1px solid orange;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	 margin: 0px 3px 3px 30px;
+}
+
+.container{
+	padding-left: 5px;
+}
+
+.diamond{
+    width: 12px;
+    height: 12px;
+    background: #9053A0;
+/* Rotate */
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+/* Rotate Origin */
+    -webkit-transform-origin: 0 100%;
+    -moz-transform-origin: 0 100%;
+    -ms-transform-origin: 0 100%;
+    -o-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    margin: 5px 3px 0px 50px;
+}
+
+/*
+.period-table >.container {
+	padding-left: 0;
+}
+*/
+
+.container:last-child {
+	margin-bottom: 5px;
+}
+
+.inner-content{
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+}
+
+.period{
+	flex-grow: 2;
+	padding: 5px;
+	vertical-align: center;
+}
+
+#Cenozoic {
+	background: #F3EA55;
+}
+
+#Quaternary{
+	background: #fff79f;
+}
+
+#Neogene{
+	background: #fddd43;
+}
+
+#Paleogene{
+	background: #f7aa74;
+}
