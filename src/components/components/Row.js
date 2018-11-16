@@ -40,9 +40,9 @@ class Row extends Component {
                     <div className="container" style={{ backgroundColor: childColor[0], borderColor: childColor[0] }}>
                         <div className="inner-content">
                             <div className="period">[-] {childData.text}</div>
-                            <div className="column-one-name" style={{ backgroundColor: childColor[1] }}><div className="diamond"></div>{childData['value-source-rock']}</div>
+                            <div className="column-one-name" style={{ backgroundColor: childColor[1] }}>{childData['value-source-rock']}</div>
                             <div className="column-two-names" style={{ backgroundColor: childColor[1] }}>
-                                <div className="resource-left"><div className="circle"></div>{childData['value-clastics']}</div>
+                                <div className="resource-left">{childData['value-clastics']}</div>
                                 <div className="resource-right">{childData['value-carbonates']}</div>
                             </div>
                             <div className="column-two-names" style={{ backgroundColor: childColor[1] }}>
