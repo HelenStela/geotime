@@ -26,6 +26,8 @@ class Row extends Component {
                         <div className="column-two-names" style={{ backgroundColor: fatherColors[1] }}>
                             <div className="resource-left">{father['value-gas']}</div>
                             <div className="resource-right">{father['value-oil']}</div>
+
+                           
                         </div>
                     </div>
                     <div key={functionData.text} className="container" style={{ backgroundColor: colors[0], borderColor: colors[0] }}>
