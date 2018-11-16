@@ -2,17 +2,14 @@ import React, { Component } from 'react';
 import './Table.css';
 import Row from './components/Row';
 
-import chronoColors from './chrono-colors';
 import geotime from './geotime';
 
 class Table extends Component {
   render() {
     const rows = [];
-
     for (let i = 0; i < geotime.length; i++) {
       const data = geotime[i];
-      const colors = chronoColors[data.text];
-      rows.push(<Row key={data.text} data={data} colors={colors} />)
+      rows.push(<Row key={data.text} children={data} />)
     }
 
     return (
