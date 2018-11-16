@@ -2,51 +2,57 @@ import React, { Component, /*ReactPropTypes*/ } from 'react';
 import chronoColors from '../chrono-colors';
 
 class Row extends Component {
-   childrens = null;
-   
-      
-    
+
     render() {
-         if (this.props.children){
-            childrens = this.props.children.map((child) => {
-                return (
-                    <Row key={child.text} children={child} />
-                )
-            })
-        }
-     
-     
-      return (
-            <div className="container">
-                {children.map((child) =>
-                    <div key={child.text} className="container">
+        let final = [];
+        let data = this.props.data;
+        function dataRender(father, functionData) {
+            if (functionData.children) {
+                functionData.children.map(child => {
+                    return dataRender(functionData, child);
+                })
+            }
+            const fatherColors = chronoColors[father.text];
+            const colors = chronoColors[functionData.text];
+            return (
+                <div key={father.text} className="container" style={{ backgroundColor: fatherColors[0], borderColor: fatherColors[0] }}>
+                    <div className="inner-content">
+                        <div className="period">[-] {father.text}</div>
+                        <div className="column-one-name" style={{ backgroundColor: fatherColors[1] }}>{father['value-source-rock']}</div>
+                        <div className="column-two-names" style={{ backgroundColor: fatherColors[1] }}>
+                            <div className="resource-left">{father['value-clastics']}</div>
+                            <div className="resource-right">{father['value-carbonates']}</div>
+                        </div>
+                        <div className="column-two-names" style={{ backgroundColor: fatherColors[1] }}>
+                            <div className="resource-left">{father['value-gas']}</div>
+                            <div className="resource-right">{father['value-oil']}</div>
+                        </div>
+                    </div>
+                    <div key={functionData.text} className="container" style={{ backgroundColor: colors[0], borderColor: colors[0] }}>
                         <div className="inner-content">
-                            <div className="period" style={{ backgroundColor: chronoColors[child.text][0] }}>[-] {children.text}</div>
-                            <div className="column-one-name" style={{ backgroundColor: chronoColors[child.text][1] }}>{children['value-source-rock']}</div>
-                            <div className="column-two-names" style={{ backgroundColor: chronoColors[child.text][1] }}>
-                                <div className="resource-left">{children['value-clastics']}</div>
-                                <div className="resource-right">{children['value-carbonates']}</div>
+                            <div className="period" >[-] {functionData.text}</div>
+                            <div className="column-one-name" style={{ backgroundColor: colors[1] }}>{functionData['value-source-rock']}</div>
+                            <div className="column-two-names" style={{ backgroundColor: colors[1] }}>
+                                <div className="resource-left">{functionData['value-clastics']}</div>
+                                <div className="resource-right">{functionData['value-carbonates']}</div>
                             </div>
-                            <div className="column-two-names" style={{ backgroundColor: chronoColors[child.text][1] }}>
-                                <div className="resource-left">{children['value-gas']}</div>
-                                <div className="resource-right">{children['value-oil']}</div>
+                            <div className="column-two-names" style={{ backgroundColor: colors[1] }}>
+                                <div className="resource-left">{functionData['value-gas']}</div>
+                                <div className="resource-right">{functionData['value-oil']}</div>
                             </div>
                         </div>
-                        {child.children && <Row key={child.text} children={child} /> }
                     </div>
-                )}
-            </div>
-        )
-
-
-
+                </div>
+            )
+        }
+       final = data.children.map(child => {
+           return dataRender(data, child);
+       })
+       
+       return final;
     }
 
-    
 }
 
-// Row.propTypes = {
-//         children: ReactPropTypes.array.isRequired
-//     }
 
 export default Row;

@@ -9,7 +9,7 @@ class Table extends Component {
     const rows = [];
     for (let i = 0; i < geotime.length; i++) {
       const data = geotime[i];
-      rows.push(<Row key={data.text} children={data} />)
+      rows.push(<Row key={data.text} data={data} />)
     }
 
     return (
