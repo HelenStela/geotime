@@ -19,7 +19,7 @@ class Table extends Component {
       <div className="period-table">
         <div className="table-header">
           <div className="column-one-name header">Source</div>
-          <div className="column-two-names header">
+          <div className="column-two-names header" >
             <div className="name">Reservoir</div>
             <div className="resource-left">Clastics</div>
             <div className="resource-right">Carbonates</div>

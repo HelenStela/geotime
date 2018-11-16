@@ -11,21 +11,33 @@
 	width: 100%;
 }
 
+.table-header > .column-one-name {
+	margin: 0px;
+}
+
+.table-header > .column-two-names {
+	margin: 0px;
+	width: 202px;
+}
+
 .column-one-name{
+	margin: 1px;
 	padding: 5px;
 	width: 100px;
-	border: 1px solid #ccc;	
+	/* border: 1px solid #ccc;	 */
 	text-align: center;
+	 
 }
 
 .column-two-names{
+	margin: 1px;
 	padding: 5px;
 	text-align: center;
 	padding-left: 10px;
 	padding-right: 10px;
 	box-sizing: border-box;
 	width: 200px;
-	border: 1px solid #ccc;	
+/*	border: 1px solid #ccc;	*/
 }
 
 .header{
@@ -68,8 +80,8 @@
 }
 
 .diamond{
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     background: #9053A0;
 /* Rotate */
     -webkit-transform: rotate(-45deg);
@@ -83,7 +95,7 @@
     -ms-transform-origin: 0 100%;
     -o-transform-origin: 0 100%;
     transform-origin: 0 100%;
-    margin: 5px 3px 0px 50px;
+    margin: 3px 3px 2px 50px;
 }
 
 /*
@@ -106,20 +118,4 @@
 	flex-grow: 2;
 	padding: 5px;
 	text-align: left;
-}
-
-#Cenozoic {
-	background: #F3EA55;
-}
-
-#Quaternary{
-	background: #fff79f;
-}
-
-#Neogene{
-	background: #fddd43;
-}
-
-#Paleogene{
-	background: #f7aa74;
 }
