@@ -4,55 +4,35 @@ import chronoColors from '../chrono-colors';
 class Row extends Component {
 
     render() {
-        let final = [];
-        let data = this.props.data;
-        function dataRender(father, functionData) {
-            if (functionData.children) {
-                functionData.children.map(child => {
-                    return dataRender(functionData, child);
-                })
-            }
-            const fatherColors = chronoColors[father.text];
-            const colors = chronoColors[functionData.text];
-            return (
-                <div key={father.text} className="container" style={{ backgroundColor: fatherColors[0], borderColor: fatherColors[0] }}>
-                    <div className="inner-content">
-                        <div className="period">[-] {father.text}</div>
-                        <div className="column-one-name" style={{ backgroundColor: fatherColors[1] }}>{father['value-source-rock']}</div>
-                        <div className="column-two-names" style={{ backgroundColor: fatherColors[1] }}>
-                            <div className="resource-left">{father['value-clastics']}</div>
-                            <div className="resource-right">{father['value-carbonates']}</div>
-                        </div>
-                        <div className="column-two-names" style={{ backgroundColor: fatherColors[1] }}>
-                            <div className="resource-left">{father['value-gas']}</div>
-                            <div className="resource-right">{father['value-oil']}</div>
-
-                           
-                        </div>
-                    </div>
-                    <div key={functionData.text} className="container" style={{ backgroundColor: colors[0], borderColor: colors[0] }}>
-                        <div className="inner-content">
-                            <div className="period" >[-] {functionData.text}</div>
-                            <div className="column-one-name" style={{ backgroundColor: colors[1] }}>{functionData['value-source-rock']}</div>
-                            <div className="column-two-names" style={{ backgroundColor: colors[1] }}>
-                                <div className="resource-left">{functionData['value-clastics']}</div>
-                                <div className="resource-right">{functionData['value-carbonates']}</div>
-                            </div>
-                            <div className="column-two-names" style={{ backgroundColor: colors[1] }}>
-                                <div className="resource-left">{functionData['value-gas']}</div>
-                                <div className="resource-right">{functionData['value-oil']}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )
+        let subRows = [];
+        const data = this.props.data;
+        const colors = this.props.colors;
+        if (data.children) {
+            data.children.map(child => {
+                const childColors = chronoColors[child.text];
+                subRows.push(<Row key = {child.text} data={child} colors={childColors} />)
+            })
         }
-       final = data.children.map(child => {
-           return dataRender(data, child);
-       })
-       
-       return final;
-    }
+        
+        return(
+            <div key={data.text} className="container" style={{ backgroundColor: colors[0], borderColor: colors[0] }}>
+            <div className="inner-content">
+                <div className="period">[-] {data.text}</div>
+                <div className="column-one-name" style={{ backgroundColor: colors[1] }}>{data['value-source-rock']}</div>
+                <div className="column-two-names" style={{ backgroundColor: colors[1] }}>
+                    <div className="resource-left">{data['value-clastics']}</div>
+                    <div className="resource-right">{data['value-carbonates']}</div>
+                </div>
+                <div className="column-two-names" style={{ backgroundColor: colors[1] }}>
+                    <div className="resource-left">{data['value-gas']}</div>
+                    <div className="resource-right">{data['value-oil']}</div>                   
+                </div>
+            </div>
+            {subRows}
+        </div>
+        )
+
+        }
 
 }
 

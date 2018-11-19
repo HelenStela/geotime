@@ -3,15 +3,15 @@ import './Table.css';
 import Row from './components/Row';
 
 import geotime from './geotime';
+import chronoColors from './chrono-colors';
 
 class Table extends Component {
   render() {
     const rows = [];
     for (let i = 0; i < geotime.length; i++) {
       const data = geotime[i];
-      rows.push(<Row key={data.text} data={data} />)
+      rows.push(<Row key={data.text} data={data} colors = {chronoColors[data.text]}/>)
     }
-
     return (
       <div className="period-table">
         <div className="table-header">
