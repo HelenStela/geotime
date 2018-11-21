@@ -29,8 +29,14 @@ class Row extends Component {
     }
 
     handleClick = () => {
-        this.setState({
-            opened: !this.state.opened
+        // this.setState({
+        //     opened: !this.state.opened
+        // });
+
+        this.setState((prevState, prevProps) => {
+            return {
+                opened: !prevState.opened
+            };
         });
     }
 
@@ -41,9 +47,9 @@ class Row extends Component {
             <div key={data.text} className="container" style={{ backgroundColor: colors[0], borderColor: colors[0] }}>
                 <div className="inner-content">
                     <div className="period">
-                        {this.state.opened ? (<span onClick={this.handleClick}>[-] </span>) :
-                            (data.children ? (<span onClick={this.handleClick}>[+] </span>) : (<span onClick={this.handleClick}>[-] </span>)
-                            )}
+                        <span onClick={this.handleClick}>{
+                            this.state.opened ? ("[-]") : (data.children ? ("[+]") : ("[-]"))
+                        }</span>
                         {data.text}
                     </div>
                     <div className="cell-wrapper">
@@ -101,7 +107,8 @@ class Row extends Component {
                                                 borderColor: '#7BA754', backgroundColor: '#88C86E', width: '6px', height: '6px', borderRadius: '4px'
                                             }}></div>))}
                                 </div>
-                                {data['value-gas']}</div>
+                                {data['value-gas']}
+                            </div>
                             <div className="cell right">
                                 <div className="icon-wrapper"></div>
                                 {data['value-oil']}</div>
@@ -109,7 +116,7 @@ class Row extends Component {
                     </div>
                 </div>
                 {this.state.opened && this.state.rows.map(item => {
-                    return (<Row key={item.key} data={item.data} colors={item.colors} opened={this.opened} />)
+                    return (<Row key={item.key} data={item.data} colors={item.colors} opened={this.state.opened} />)
                 })}
             </div>
         )
@@ -121,5 +128,3 @@ class Row extends Component {
 
 export default Row;
 
-{/* <div className="circle"></div>
-        <div className="diamond"></div> */}
